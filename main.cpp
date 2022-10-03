@@ -51,10 +51,12 @@ int main(int argc, char *argv[])
     printf("newh = %p\n",head);
    Scope(head);
 */
+/*
    printf("\nchoose value to kill:");
    scanf("%d",&k);
    head=DeleteKey(head,k);
    Scope(head);
+*/
 
    Freelist(head);
 
