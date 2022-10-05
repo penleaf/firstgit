@@ -15,6 +15,9 @@ void Freelist(Lnode *head);
 int Getlength(Lnode *head);
 Lnode* Deletenode(Lnode *head,int k);
 Lnode* DeleteKey(Lnode *head,int key);
+Lnode* PushFront(Lnode *head, int newData);
+void PushBack(Lnode *head,int newData);
+Lnode* Reverse(Lnode *head);
 
 void Scope(Lnode *head)
 {
@@ -148,6 +151,65 @@ Lnode *DeleteKey(Lnode *head,int key)
     return(newhead);
 
 }
+
+Lnode* PushFront(Lnode *head, int newData)
+{
+    Lnode *tmp;
+    tmp =(Lnode*) malloc(sizeof(Lnode));
+    tmp->value = newData;
+    tmp->next = head;
+    return tmp;
+
+}
+
+void PushBack(Lnode *head,int newData)
+{
+    while(NULL!=head->next)
+    {
+        head = head->next;
+    }
+    Lnode* tmp;
+    tmp = (Lnode*)malloc(sizeof(Lnode));
+    head->next = tmp;
+    tmp->value = newData;
+    tmp->next = NULL;
+}
+Lnode* Reverse(Lnode *head)
+{
+    Lnode *previous,*current;
+    previous = NULL;
+    int bt =1;//stop condition
+
+    while(bt)
+    {
+
+
+        if(NULL == previous)
+        {
+            current = head;
+            head = head->next;
+            current->next = NULL;
+            previous = current;
+        }
+
+        else if(NULL == head->next)
+        {
+            bt=0;
+            head->next = previous;
+        }
+        else
+        {
+            current = head;
+            head = head->next;
+            current->next = previous;
+            previous = current;
+        }
+
+    }
+
+    return head;
+}
+
 
 
 #endif // LISTTEST_H

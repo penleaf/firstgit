@@ -57,6 +57,29 @@ int main(int argc, char *argv[])
    head=DeleteKey(head,k);
    Scope(head);
 */
+   printf("PushFront #1 -----\n");
+   head = PushFront(head,3);
+   Scope(head);
+   printf("PushFront #2 -----\n");
+   head = PushFront(head,2);
+   Scope(head);
+   printf("PushFront #3 -----\n");
+   head = PushFront(head,1);
+   Scope(head);
+
+   printf("PushBack #1----\n");
+   PushBack(head,9);
+   Scope(head);
+   printf("PushBack #2----\n");
+   PushBack(head,10);
+   Scope(head);
+   printf("PushBack #3----\n");
+   PushBack(head,11);
+   Scope(head);
+
+
+   head = Reverse(head);
+   Scope(head);
 
    Freelist(head);
 
